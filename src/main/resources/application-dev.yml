@@ -13,3 +13,6 @@ spring:
         dialect: org.hibernate.dialect.MySQL57Dialect
   liquibase:
     change-log: classpath:db/liquibase-changelog.xml
+  queries:
+    users-query: select email, password, email_verified from users where email=?
+    roles-query: select u.email, r.role from users u inner join user_role ur on u.user_id=ur.user_id inner join roles r on(ur.role_id=r.role_id) where u.email=?
