@@ -1,12 +1,19 @@
 package com.drivetuningsh.constant;
 
+import lombok.Getter;
+
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
+@Getter
 public enum AppConstant {
 
-    DEFAULT_LOCALE(Locale.forLanguageTag("ru")),
-    DEFAULT_ENCODING(Charset.forName("UTF-8"));
+    DEFAULT_LOCALE(Locale.ENGLISH),
+    DEFAULT_ENCODING(StandardCharsets.UTF_8);
+
+    private Locale locale;
+    private Charset charset;
 
     AppConstant(Locale locale) {
         this.locale = locale;
@@ -14,25 +21,5 @@ public enum AppConstant {
 
     AppConstant(Charset charset) {
         this.charset = charset;
-    }
-
-    AppConstant(long value) {
-        this.value = value;
-    }
-
-    private Locale locale;
-    private Charset charset;
-    private long value;
-
-    public Locale getLocale() {
-        return locale;
-    }
-
-    public Charset getCharset() {
-        return charset;
-    }
-
-    public long getValue() {
-        return value;
     }
 }
