@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/drive-tuning-portal-db?autoReconnect=true&useSSL=false
+    username: root
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+  liquibase:
+    change-log: classpath:db/liquibase-changelog.xml

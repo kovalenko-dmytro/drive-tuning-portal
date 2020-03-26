@@ -1,0 +1,22 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    
+    <changeSet id="1" author="Kovalenko-Dmytro">
+        <sqlFile path="db/script/01-create-users.sql" />
+    </changeSet>
+
+    <changeSet id="2" author="Kovalenko-Dmytro">
+        <sqlFile path="db/script/02-create-roles" />
+    </changeSet>
+
+    <changeSet id="3" author="Kovalenko-Dmytro">
+        <sqlFile path="db/script/03-create-user_role" />
+    </changeSet>
+
+    <changeSet id="4" author="Kovalenko-Dmytro">
+        <sqlFile path="db/script/04-insert-roles" />
+    </changeSet>
+</databaseChangeLog>
