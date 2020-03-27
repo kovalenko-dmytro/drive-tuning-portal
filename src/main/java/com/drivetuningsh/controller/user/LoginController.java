@@ -3,6 +3,7 @@ package com.drivetuningsh.controller.user;
 
 import com.drivetuningsh.dto.UserRequestDto;
 import com.drivetuningsh.entity.user.User;
+import com.drivetuningsh.service.user.SecurityService;
 import com.drivetuningsh.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -23,6 +24,7 @@ import javax.validation.Valid;
 public class LoginController {
 
     private final UserService userService;
+    private final SecurityService securityService;
 
     @GetMapping(value="/login")
     public ModelAndView login(){
@@ -54,14 +56,15 @@ public class LoginController {
     public ModelAndView registration(@Valid UserRequestDto userRequestDto, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
         User userExists = userService.findByEmail(userRequestDto.getEmail());
-
         if (userExists != null) {
             bindingResult.rejectValue("email", "error.user");
         }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("/pages/registration");
+            modelAndView.addObject(bindingResult);
         } else {
-            userService.save(userRequestDto);
+            User savedUser = userService.save(userRequestDto);
+            securityService.autoLogin(savedUser.getEmail(), savedUser.getPassword());
             modelAndView.setViewName("redirect:/index");
         }
         return modelAndView;

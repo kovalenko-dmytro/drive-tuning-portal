@@ -5,5 +5,5 @@ import com.drivetuningsh.entity.user.User;
 
 public interface UserService {
     User findByEmail(String email);
-    void save(UserRequestDto userRequestDto);
+    User save(UserRequestDto userRequestDto);
 }

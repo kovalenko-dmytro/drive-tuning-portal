@@ -1,4 +1,4 @@
-package com.drivetuningsh.service.user;
+package com.drivetuningsh.service.user.impl;
 
 
 import com.drivetuningsh.dto.UserRequestDto;
@@ -7,6 +7,7 @@ import com.drivetuningsh.entity.user.RoleEnum;
 import com.drivetuningsh.entity.user.User;
 import com.drivetuningsh.repository.user.RoleRepository;
 import com.drivetuningsh.repository.user.UserRepository;
+import com.drivetuningsh.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
     private final BCryptPasswordEncoder encoder;
 
     @Override
-    public void save(UserRequestDto userRequestDto) {
+    public User save(UserRequestDto userRequestDto) {
         Role userRole = roleRepository.findByRole(RoleEnum.USER.getRole());
         User newUser = new User();
 
@@ -34,7 +35,7 @@ public class UserServiceImpl implements UserService {
         newUser.setEmailVerified(true);
         newUser.setRoles(new HashSet<>(Collections.singletonList(userRole)));
 
-        userRepository.save(newUser);
+        return userRepository.save(newUser);
     }
 
     @Override
