@@ -13,16 +13,16 @@ import javax.validation.constraints.Size;
 @Data
 public class UserRequestDto {
 
-    @NotBlank(message = "message = *Please provide your first name")
+    @NotBlank(message = "{valid.first.name}")
     private String firstName;
 
-    @NotBlank(message = "message = *Please provide your last name")
+    @NotBlank(message = "{valid.last.name}")
     private String lastName;
 
-    @Email(message = "*Please provide a valid Email")
+    @Email(message = "{valid.email}")
     private String email;
 
-    @NotBlank(message = "message = *Please provide your password")
-    @Size(min = 6, message = "message = *Please more 6 symbol")
+    @NotBlank(message = "{valid.password}")
+    @Size(min = 6, message = "{valid.password.size}")
     private String password;
 }

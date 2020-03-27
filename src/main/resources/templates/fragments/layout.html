@@ -3,11 +3,11 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Profitability</title>
+        <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Drive Tuning Portal</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
         <!-- Bootstrap Core CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,14 +18,14 @@
     </head>
 
     <body>
-        <div id="wrapper">
+
             <!-- Navigation -->
             <div th:replace="~{fragments/header :: header}"></div>
 
             <!-- Content -->
             <div layout:fragment="content"></div>
 
-        </div>
+
         <!-- Footer -->
         <div th:replace="~{fragments/footer :: footer}"></div>
     </body>
