@@ -18,5 +18,5 @@ spring:
     roles-query: select u.email, r.role from users u inner join user_role ur on u.user_id=ur.user_id inner join roles r on(ur.role_id=r.role_id) where u.email=?
   social:
     facebook:
-      appId: 757177244814304
-      appSecret: 092493432728a3575505fa432b0c58f8
+      appId:
+      appSecret:
