@@ -35,7 +35,7 @@ public class User {
     @Column(name = "email_verified")
     private boolean emailVerified;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),

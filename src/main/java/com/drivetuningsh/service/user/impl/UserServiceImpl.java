@@ -39,6 +39,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void saveAdmin(String ... args) {
+        if (userRepository.findByEmail(args[2]) == null) {
+            Role userRole = roleRepository.findByRole(RoleEnum.ADMIN.getRole());
+            User admin = new User();
+
+            admin.setFirstName(args[0]);
+            admin.setLastName(args[1]);
+            admin.setEmail(args[2]);
+            admin.setPassword(encoder.encode(args[3]));
+            admin.setEmailVerified(true);
+            admin.setRoles(new HashSet<>(Collections.singletonList(userRole)));
+
+            userRepository.save(admin);
+        }
+    }
+
+    @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
