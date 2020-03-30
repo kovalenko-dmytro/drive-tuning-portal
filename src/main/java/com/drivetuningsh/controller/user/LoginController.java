@@ -55,10 +55,6 @@ public class LoginController {
     @PostMapping(value = "/registration")
     public ModelAndView registration(@Valid UserRequestDto userRequestDto, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
-        User userExists = userService.findByEmail(userRequestDto.getEmail());
-        if (userExists != null) {
-            bindingResult.rejectValue("email", "error.user");
-        }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("/pages/registration");
             modelAndView.addObject(bindingResult);

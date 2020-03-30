@@ -1,5 +1,6 @@
 package com.drivetuningsh.dto;
 
+import com.drivetuningsh.validator.UniqueEmail;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class UserRequestDto {
     private String lastName;
 
     @Email(message = "{valid.email}")
+    @UniqueEmail
     private String email;
 
     @NotBlank(message = "{valid.password}")
