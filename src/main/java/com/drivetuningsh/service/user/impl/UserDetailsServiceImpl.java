@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userRepository.findByEmail(email);
         if (user == null) {
             throw new UsernameNotFoundException(
-                messageSource.getMessage("error.user-not-exist", new Object[]{email}, Locale.ENGLISH));
+                messageSource.getMessage("error.user.not.exist", new Object[]{email}, Locale.ENGLISH));
         }
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         user.getRoles().forEach(role -> grantedAuthorities.add(new SimpleGrantedAuthority(role.getRole())));
